@@ -162,7 +162,7 @@ export const normalTimeStudies = [
   {
     id: 61,
     cost: 3,
-    requirement: [51],
+    requirement: [52],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     description: () => `Game runs faster based on tickspeed`,
     effect: () => Math.log2(Math.max(-Tickspeed.current.log10(),10))**1.5,
@@ -171,7 +171,7 @@ export const normalTimeStudies = [
   {
     id: 62,
     cost: 3,
-    requirement: [51],
+    requirement: [52],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     description: () => `You gain ${formatX(15)} more Eternity Points,more based upon Eternities`,
     effect: () => 15*Math.max(player.eternities.log10()+1,1),
@@ -188,7 +188,7 @@ export const normalTimeStudies = [
   {
     id: 71,
     cost: 4,
-    requirement: [61, () => Perk.studyECRequirement.isBought || !EternityChallenge(12).isUnlocked],
+    requirement: [62, () => Perk.studyECRequirement.isBought || !EternityChallenge(12).isUnlocked],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
     description: "Dimensional Sacrifice affects all other Antimatter Dimensions with reduced effect",
     effect: () => Sacrifice.totalBoost.pow(0.25).clampMin(1),
@@ -198,7 +198,7 @@ export const normalTimeStudies = [
   {
     id: 72,
     cost: 6,
-    requirement: [61,
+    requirement: [62,
       () => Perk.studyECRequirement.isBought ||
         (!EternityChallenge(11).isUnlocked && !EternityChallenge(12).isUnlocked)],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
@@ -210,7 +210,7 @@ export const normalTimeStudies = [
   {
     id: 73,
     cost: 5,
-    requirement: [61, () => Perk.studyECRequirement.isBought || !EternityChallenge(11).isUnlocked],
+    requirement: [62, () => Perk.studyECRequirement.isBought || !EternityChallenge(11).isUnlocked],
     reqType: TS_REQUIREMENT_TYPE.DIMENSION_PATH,
     description: "Dimensional Sacrifice affects 3rd Time Dimension with greatly reduced effect",
     effect: () => Sacrifice.totalBoost.pow(0.005).clampMin(1),
