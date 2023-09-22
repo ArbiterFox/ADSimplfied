@@ -220,10 +220,10 @@ export const V = {
     return this.spaceTheorems >= 66;
   },
   nextNormalReductionCost() {
-    return 1000;
+    return 10;
   },
   nextHardReductionCost(currReductionSteps) {
-    return 1000 * Math.pow(1.15, currReductionSteps);
+    return 10;
   },
   quotes: Quotes.v,
   symbol: "⌬"

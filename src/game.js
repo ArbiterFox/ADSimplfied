@@ -863,15 +863,22 @@ function applyAutoprestige(diff) {
   Currency.relicShards.add(TimeStudy(271).effectValue*(diff/1000));
   }
 
+  if (TimeStudy(281).isBought) {player.celestials.enslaved.storedReal += diff*Perk.Time.effectOrDefault(1)}
+  if (TimeStudy(291).isBought) {V.spaceTheorems += TimeStudy(291).effectValue}
+
   if (TimeStudy(272).isBought) {
      const sacgain = GlyphSacrificeHandler.glyphSacrificeGain(player.reality.glyphs.active[0])*TimeStudy(272).effectValue;
-     player.reality.glyphs.sac.power += sacgain*(diff / 1000);
-     player.reality.glyphs.sac.infinity += sacgain*(diff / 1000);
-     player.reality.glyphs.sac.time += sacgain*(diff / 1000);
-     player.reality.glyphs.sac.reality += sacgain*(diff / 1000);
-     player.reality.glyphs.sac.dilation += sacgain*(diff / 1000);
-     if (Effarig.currentStage==4) {player.reality.glyphs.sac.effarig += sacgain*(diff / 1000)};
-     if (player.reality.glyphs.createdRealityGlyph) {player.reality.glyphs.sac.reality += sacgain*(diff / 1000)};
+     player.reality.glyphs.sac.power += sacgain*diff;
+     player.reality.glyphs.sac.infinity += sacgain*diff;
+     player.reality.glyphs.sac.time += sacgain*diff;
+     player.reality.glyphs.sac.reality += sacgain*diff;
+     player.reality.glyphs.sac.dilation += sacgain*diff;
+     if (Effarig.currentStage==4) {
+       player.reality.glyphs.sac.effarig += sacgain*diff
+     };
+     if (Ra.pets.effarig.level==25) {
+       player.reality.glyphs.sac.reality += sacgain*(diff / 1000)
+     };
   }
 
   if (PelleRifts.chaos.milestones[2].canBeApplied) {

@@ -25,7 +25,7 @@ export const v = {
       id: 2,
       name: "Eternities",
       resource: () => Currency.eternities.value,
-      requirement: 1e70,
+      requirement: 1e35,
       format: x => format(x, 2),
       progress: () => emphasizeEnd(Currency.eternities.value.pLog10() / 70),
     },
@@ -33,7 +33,7 @@ export const v = {
       id: 3,
       name: "Infinities",
       resource: () => Currency.infinitiesTotal.value,
-      requirement: 1e160,
+      requirement: 1e80,
       format: x => format(x, 2),
       progress: () => emphasizeEnd(Currency.infinitiesTotal.value.pLog10() / 160),
     },
@@ -57,7 +57,7 @@ export const v = {
       id: 6,
       name: "Reality Machines",
       resource: () => Currency.realityMachines.value,
-      requirement: 1e60,
+      requirement: 1e40,
       format: x => format(x, 2),
       progress: () => emphasizeEnd(Currency.realityMachines.value.pLog10() / 60),
     },
@@ -80,7 +80,7 @@ export const v = {
       id: 1,
       name: "AntiStellar",
       description: value => `Have ${formatInt(value)} total Galaxies from all types.`,
-      values: [4000, 4300, 4600, 4900, 5200, 5500],
+      values: [3000, 3300, 3600, 3900, 4200, 4500],
       condition: () => V.isRunning,
       currentValue: () => Replicanti.galaxies.total + player.galaxies + player.dilation.totalTachyonGalaxies,
       formatRecord: x => formatInt(x),
@@ -93,7 +93,7 @@ export const v = {
       id: 2,
       name: "Se7en deadly matters",
       description: value => `Get ${format(Decimal.pow10(value))} Infinity Points in Eternity Challenge 7.`,
-      values: [6e5, 7.2e5, 8.4e5, 9.6e5, 1.08e6, 1.2e6],
+      values: [4e5, 5e5, 6e5, 7e5, 1e6, 1.1e6],
       condition: () => V.isRunning && EternityChallenge(7).isRunning,
       currentValue: () => Currency.infinityPoints.value.log10(),
       formatRecord: x => format(Decimal.pow10(x), 2),
@@ -107,7 +107,7 @@ export const v = {
       name: "Young Boy",
       description: value => `Get ${format(Decimal.pow10(value))} Antimatter in Eternity Challenge 12 without
         unlocking Time Dilation.`,
-      values: [400e6, 450e6, 500e6, 600e6, 700e6, 800e6],
+      values: [300e6, 350e6, 400e6, 500e6, 600e6, 700e6],
       condition: () => V.isRunning && EternityChallenge(12).isRunning && !PlayerProgress.dilationUnlocked(),
       currentValue: () => Currency.antimatter.value.log10(),
       formatRecord: x => format(Decimal.pow10(x)),
@@ -120,7 +120,7 @@ export const v = {
       id: 4,
       name: "Eternal Sunshine",
       description: value => `Get ${format(Decimal.pow10(value))} Eternity Points.`,
-      values: [7000, 7600, 8200, 8800, 9400, 10000],
+      values: [6000, 6600, 7200, 7800, 8400, 9000],
       condition: () => V.isRunning,
       currentValue: () => Currency.eternityPoints.value.log10(),
       formatRecord: x => format(Decimal.pow10(x), 2),
@@ -209,7 +209,7 @@ export const v = {
       id: 2,
       reward: "Antimatter Dimension power based on total Space Theorems.",
       description: () => `Have ${formatInt(5)} V-Achievements`,
-      effect: () => 1 + Math.sqrt(V.spaceTheorems) / 100,
+      effect: () => Math.min(1 + Math.sqrt(V.spaceTheorems) / 100,1+Math.sqrt(66)/100),
       format: x => formatPow(x, 3, 3),
       requirement: () => V.spaceTheorems >= 5
     },
@@ -241,11 +241,11 @@ export const v = {
     raUnlock: {
       id: 6,
       reward() {
-        return `Reduce the Space Theorem cost of Time Studies by ${formatInt(2)}.
+        return `Increase the Space Theorem cost of Time Studies by ${formatInt(48)} 💀.
                 Unlock Ra, Celestial of the Forgotten.`;
       },
       description: () => `Have ${formatInt(36)} V-Achievements`,
-      effect: 2,
+      effect: 48,
       requirement: () => V.spaceTheorems >= 36
     }
   }

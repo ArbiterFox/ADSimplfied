@@ -591,6 +591,16 @@ export const perks = {
       return `You can only purchase this after reaching the teresa pour milestone.`;
     },
     layoutPosList: [29761, 81402, 81403, 79404, 79803, 84639],
+  },
+  Time: {
+    id: 207,
+    label: "TIME",
+    family: PERK_FAMILY.REALITY,
+    get description() {
+      return `Nameless RTS is 1e3 times faster.`;
+    },
+    effect: 1000,
+    layoutPosList: [29761, 81402, 81403, 79404, 79803, 84639],
   }
 };
 
@@ -626,6 +636,7 @@ export const perkConnections = (function() {
     [p.autocompleteEC2, p.autocompleteEC3],
     [p.NR181, p.autocompleteEC4],
     [p.NR181, p.improve181],
+    [p.gateway,p.Time],
     [p.studyActiveEP, p.bypassEC2Lock, p.ttBuySingle],
     [p.studyIdleEP, p.bypassEC3Lock, p.autocompleteEC1],
     [p.studyECRequirement, p.studyECBulk],

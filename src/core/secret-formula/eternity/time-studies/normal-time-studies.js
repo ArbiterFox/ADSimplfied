@@ -830,5 +830,25 @@ export const normalTimeStudies = [
       ? `Generate 10% of all Glyph Sacrifice values based on the Sacrifice value your active glyphs would provide every IRL second.`
       : `Unlock Glyph Sacrifice to reveal the study.`),
     effect: () => 0.1,
+  },
+  {
+    id: 281,
+    cost: 1e130,
+    requirement: [271, () => Effarig.currentStage>=3],
+    reqType: TS_REQUIREMENT_TYPE.ALL,
+    description: () => (Effarig.currentStage>=3
+      ? `Stores realtime without pausing your game.`
+      : `Unlock The Nameless Ones to reveal the study.`),
+    effect: () => 0.1,
+  },
+  {
+    id: 291,
+    cost: 1e200,
+    requirement: [281, () => player.celestials.v.unlockBits>=1],
+    reqType: TS_REQUIREMENT_TYPE.ALL,
+    description: () => (player.celestials.v.unlockBits>=1
+      ? `Passively generates Space Theorems.`
+      : `Unlock V to reveal the study.`),
+    effect: () => Math.max(Currency.timeTheorems.value.log10()**0.5,0.1)**0.5,
   }
 ];

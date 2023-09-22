@@ -174,6 +174,8 @@ TimeStudy.allConnections = (function() {
     [TS(261), TimeStudy.reality],
 
     [TS(261), TS(271)],
+    [TS(271), TS(281)],
+    [TS(291), TS(281)],
     [TS(261), TS(272)],
   ].map(props => new TimeStudyConnection(props[0], props[1], props[2]));
 
